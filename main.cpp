@@ -391,7 +391,7 @@ int main()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     //text
-    Shader_text shadertext("/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/textshader/textvertex.vert", "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/textshader/textfrag.frag");
+    Shader_text shadertext("../includes/textshader/textvertex.vert", "../includes/textshader/textfrag.frag");
     //glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(1000), 0.0f, static_cast<float>(800));
     shadertext.use();
 
@@ -1727,19 +1727,19 @@ int main()
     glm::vec3 lightPos = glm::vec3(0.0, 20.0, 1.0);
     glm::vec3 lightColor = glm::vec3(0.9, 0.6, 0.9);
 
-    const vector<string> texture_files{"/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/tekerlek.jpg", "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/taban.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/deadpool.png",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/ivy.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/son.png",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/antrasit.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/asfalt.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/desert.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/cloud.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/bfire.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/greendust.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/rust.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/drs.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/Textures/confetti.jpg",
+    const vector<string> texture_files{"../includes/Textures/tekerlek.jpg", "../includes/Textures/taban.jpg",
+        "../includes/Textures/deadpool.png",
+        "../includes/Textures/ivy.jpg",
+        "../includes/Textures/son.png",
+        "../includes/Textures/antrasit.jpg",
+        "../includes/Textures/asfalt.jpg",
+        "../includes/Textures/desert.jpg",
+        "../includes/Textures/cloud.jpg",
+        "../includes/Textures/bfire.jpg",
+        "../includes/Textures/greendust.jpg",
+        "../includes/Textures/rust.jpg",
+        "../includes/Textures/drs.jpg",
+        "../includes/Textures/confetti.jpg",
         };
     
     // load textures
@@ -1748,21 +1748,21 @@ int main()
     unsigned int skyboxVAO, skyboxVBO;
     initSkybox(skyboxVAO, skyboxVBO);
     vector<std::string> faces{
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/textures/right.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/textures/left.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/textures/top.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/textures/bottom.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/textures/front.jpg",
-        "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/textures/back.jpg"};
+        "../includes/textures/right.jpg",
+        "../includes/textures/left.jpg",
+        "../includes/textures/top.jpg",
+        "../includes/textures/bottom.jpg",
+        "../includes/textures/front.jpg",
+        "../includes/textures/back.jpg"};
     unsigned cubemapTexture = loadCubemap(faces);
-    ShaderProgram skyboxShader("/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/shader/skybox.vert", "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/shader/skybox.frag");
+    ShaderProgram skyboxShader("../includes/shader/skybox.vert", "../includes/shader/skybox.frag");
     skyboxShader.use();
     auto skybox_texture = glGetUniformLocation(skyboxShader.id, "skybox");
     auto u_pv_sky = glGetUniformLocation(skyboxShader.id, "u_pv");
     glUniform1i(skybox_texture, 0); // 0th unit
 
     // create shader
-    ShaderProgram sp("/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/shader/vertex.vert", "/Users/ilkergul/Documents/seventh_semester/CS405/installopengl/installopengl/includes/shader/frag.frag");
+    ShaderProgram sp("../includes/shader/vertex.vert", "../includes/shader/frag.frag");
     sp.use();
     u_transform = glGetUniformLocation(sp.id, "u_transform");
     u_pv = glGetUniformLocation(sp.id, "u_pv");
